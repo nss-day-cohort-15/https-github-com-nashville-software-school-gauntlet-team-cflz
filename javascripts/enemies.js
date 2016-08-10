@@ -1,7 +1,7 @@
-Gauntlet.Combatants.Orc = function() {
+Gauntlet.Combatants.Giant = function() {
   this.health = this.health + 20;
-  this.species = "Orc";
-  this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
+  this.species = "Giant";
+  this.allowedClasses = ["Giant", "Monk", "Berserker", "Thief", "Ninja"]; // yes, giant
 
   this.generateClass = function() {
     // Get a random index from the allowed classes array
@@ -16,5 +16,12 @@ Gauntlet.Combatants.Orc = function() {
   }
 };
 
-Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
+Gauntlet.Combatants.Giant.prototype = new Gauntlet.Combatants.Monster();
 
+Gauntlet.Combatants.Drumpf = function() {
+  this.health = this.health + 20;
+  this.species = "Drumpf";
+  this.class = "Scumbag";
+};
+
+Gauntlet.Combatants.Drumpf.prototype = new Gauntlet.Combatants.Monster();
