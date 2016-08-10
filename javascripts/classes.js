@@ -8,7 +8,7 @@ Gauntlet.GuildHall = {};
   Base function for a player, or enemy, class (profession)
  */
 Gauntlet.GuildHall.PlayerClass = function() {
-  this.name = "Beggar";
+  this.name = "";
   this.healthBonus = 0;
   this.strengthBonus = 0;
   this.intelligenceBonus = 0;
