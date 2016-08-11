@@ -60,5 +60,9 @@ $(document).ready(function() {
       userName = $('#player-name').val();
     console.log(userName)
   });
+  // Captures selected class
+  $(".btn__text").click(function() {
+    console.log("User class", (this).innerText);
+  });
 
 });
