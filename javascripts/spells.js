@@ -20,6 +20,10 @@ Gauntlet.SpellBook.Spell = function() {
   }
 };
 
+Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
+  this.spell = newSpell;
+}
+
 /*
   An elemental sphere that can be cast by a magical class
  */
@@ -31,3 +35,31 @@ Gauntlet.SpellBook.Sphere = function() {
   this.type = this.damageTypes[random];
 };
 Gauntlet.SpellBook.Sphere.prototype = new Gauntlet.SpellBook.Spell();
+
+
+
+
+// var Gauntlet Gauntlet || {};
+// Gauntlet.WeaponsCloset = {};
+// Gauntlet.WeaponsCloset.Weapon = function () {
+//   this.name = "";
+//   this.damage = 0;
+
+//   this.damageTypes = ["Melee", "Projectile", "Sneak"];
+//   this.type = "";
+//   this.toString = function() {
+//     return this.name this.type + " attack for " + this.damage + " damage!";
+//   }
+// };
+// Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
+//   this.weapon = newWeapon;
+// }
+
+// Gauntlet.WeaponsCloset.PocketSand = function() {
+//   this.name = "pocket sand";
+//   this.damage = Math.floor(Math.random() * 10 + 10);
+//   this.type = this.damageTypes[2];
+// };
+// Gauntlet.WeaponsCloset.PocketSand.prototype = new Gauntlet.WeaponsCloset.Weapon();
+
+
