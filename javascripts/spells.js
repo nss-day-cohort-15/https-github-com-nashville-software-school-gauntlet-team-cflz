@@ -73,9 +73,3 @@ Gauntlet.SpellBook.Hadouken = function() {
 
 Gauntlet.SpellBook.Hadouken.prototype = new Gauntlet.SpellBook.Spell();
 
-
-
-
-
-
-

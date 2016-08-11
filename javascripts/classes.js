@@ -39,7 +39,7 @@ Gauntlet.GuildHall.Fighter.prototype = new Gauntlet.GuildHall.PlayerClass();
 
 
 Gauntlet.GuildHall.Warrior = function() {
-  this.name = "warrior";
+  this.name = "Warrior";
   this.healthBonus = this.healthBonus + 5;
   this.accuracyBonus = this.accuracyBonus + 10;
   this.intelligenceBonus = this.intelligenceBonus + 10;
@@ -49,7 +49,7 @@ Gauntlet.GuildHall.Warrior.prototype = new Gauntlet.GuildHall.Fighter();
 
 
 Gauntlet.GuildHall.Valkyrie = function() {
-  this.name = "valkyrie";
+  this.name = "Valkyrie";
   this.healthBonus = this.healthBonus -5;
   this.strengthBonus = this.strengthBonus - 10;
   this.intelligenceBonus = this.intelligenceBonus + 25;
@@ -59,17 +59,18 @@ Gauntlet.GuildHall.Valkyrie.prototype = new Gauntlet.GuildHall.Fighter();
 
 
 Gauntlet.GuildHall.Berserker = function() {
-  this.name = "berserker";
+  this.name = "Berserker";
   this.healthBonus = this.healthBonus + 15;
   this.strengthBonus = this.strengthBonus + 10;
   this.intelligenceBonus = this.intelligenceBonus - 9;
   this.evasiveBonus = this.evasiveBonus + 24;
+
 };
 Gauntlet.GuildHall.Berserker.prototype = new Gauntlet.GuildHall.Fighter();
 
 
 Gauntlet.GuildHall.Monk = function() {
-  this.name = "monk";
+  this.name = "Monk";
   this.healthBonus = this.healthBonus + 20;
   this.strengthBonus = this.strengthBonus - 10;
   this.intelligenceBonus = this.intelligenceBonus + 30;
@@ -99,12 +100,14 @@ Gauntlet.GuildHall.Mage = function() {
 Gauntlet.GuildHall.Mage.prototype = new Gauntlet.GuildHall.PlayerClass();
 
 
+
 Gauntlet.GuildHall.Wizard = function() {
   this.name = "wizard";
   this.healthBonus = this.healthBonus + 5;
   this.strengthBonus = this.strengthBonus - 5;
   this.intelligenceBonus = this.intelligenceBonus + 10;
   this.evasiveBonus = this.evasiveBonus -10;
+
 };
 Gauntlet.GuildHall.Wizard.prototype = new Gauntlet.GuildHall.Mage();
 
@@ -160,6 +163,6 @@ Gauntlet.GuildHall.Thief.prototype = new Gauntlet.GuildHall.Stealth();
 Gauntlet.GuildHall.Assassin = function() {
   this.name = "assassin";
   this.evasiveBonus = this.evasiveBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus + 5;
+  this.strengthBonus = this.strengthBonus -5;
 };
 Gauntlet.GuildHall.Assassin.prototype = new Gauntlet.GuildHall.Stealth();

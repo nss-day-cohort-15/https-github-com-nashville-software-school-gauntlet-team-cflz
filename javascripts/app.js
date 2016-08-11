@@ -1,15 +1,16 @@
+
 /*
   Test code to generate a human player and an orc player
  */
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new WarAxe());
-warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
+// var warrior = new Gauntlet.Combatants.Human();
+// warrior.setWeapon(new WarAxe());
+// warrior.generateClass();  // This will be used for "Surprise me" option
+// console.log(warrior.toString());
 
-var orc = new Gauntlet.Combatants.Orc();
-orc.generateClass();
-orc.setWeapon(new BroadSword());
-console.log(orc.toString());
+// var orc = new Gauntlet.Combatants.Orc();
+// orc.generateClass();
+// orc.setWeapon(new BroadSword());
+// console.log(orc.toString());
 
 /*
   Test code to generate a spell
@@ -19,6 +20,8 @@ console.log("spell: ", spell.toString());
 
 
 $(document).ready(function() {
+
+  var champ;
   /*
     Show the initial view that accepts player name
    */
@@ -57,12 +60,27 @@ $(document).ready(function() {
   });
   // Captures userName
     $("[next='card--class']").on('click', function(e) {
-      userName = $('#player-name').val();
-    console.log(userName)
-  });
-  // Captures selected class
-  $(".btn__text").click(function() {
-    console.log("User class", (this).innerText);
+
+      var champName = $('#player-name').val();
+      champ = new Gauntlet.Combatants.Human(champName)
+      console.log(champ)
   });
 
+// // Captures userClass
+//     $("[next='card--weapon']").on('click', function(e) {
+//      userClass = $(this).toggleClass('selected');
+//      userName.setClass = new Gauntlet.Guildhall.userClass();
+//      console.log(userName)
+// });
+
+  $(".champ").click(function() {
+     console.log("User class", (this).innerText);
+     var champClass = (this).innerText.toLowerCase();
+     champClass = champClass.charAt(0).toUpperCase() + champClass.slice(1)
+     console.log(champClass)
+     champ.setClass(champClass);
+     console.log(champ)
+  });
+
 });
+
