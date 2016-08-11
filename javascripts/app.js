@@ -1,3 +1,13 @@
+// var warrior = new Gauntlet.Combatants.Human();
+// warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
+// warrior.generateClass();  // This will be used for "Surprise me" option
+// console.log(warrior.toString());
+
+// var orc = new Gauntlet.Combatants.Orc();
+// orc.generateClass();
+// orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
+// console.log(orc.toString());
+
 
 /*
   Test code to generate a human player and an orc player
@@ -92,6 +102,33 @@ $(document).ready(function() {
      console.log(champ)
   });
 
+
+
+  $(".weapon").click(function(event) {
+     console.log("User weapon", (this).innerText);
+     // var champWeapon = (this).innerText.toLowerCase();
+     var champWeapon = event.currentTarget.id
+
+     // champWeapon = champWeapon.charAt(0).toUpperCase() + champWeapon.slice(1)
+     // console.log(champWeapon)
+     champ.weapon = new Gauntlet.WeaponsCloset[champWeapon]();
+
+     console.log(champ)
+  });
+
+$(".spell").click(function() {
+     console.log("User spell", (this).innerText);
+     var champSpell = (this).innerText.toLowerCase();
+     champSpell = champSpell.charAt(0).toUpperCase() + champSpell.slice(1)
+     console.log(champSpell)
+     champ.setSpell(champSpell);
+     console.log(champ)
+  });
+
+
+
+  // });
+
   var attack = function () {
     var foe = new Gauntlet.Combatants.Drumpf()
     console.log(champ);
@@ -144,13 +181,5 @@ $(document).ready(function() {
   };
   clearInterval(moveMonster);
 
-
-
-
-
-
 });
-
-
-
 
