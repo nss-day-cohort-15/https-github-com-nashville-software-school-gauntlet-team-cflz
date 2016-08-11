@@ -77,7 +77,7 @@ Gauntlet.Combatants.Human = function() {
   randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
   this.skinColor = this.skinColors[randomSkin];
 
-  this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
+  this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk", "Valkyrie", "Sorcerer", "Conjurer", "Wizard", "Thief", "Assassin", "Ninja"];
 };
 Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
 
@@ -97,7 +97,7 @@ Gauntlet.Combatants.Monster.prototype = new Gauntlet.Combatants.Player();
 Gauntlet.Combatants.Orc = function() {
   this.health = this.health + 20;
   this.species = "Orc";
-  this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
+  this.allowedClasses = ["Warrior", "Berserker",];
 
   this.generateClass = function() {
     // Get a random index from the allowed classes array

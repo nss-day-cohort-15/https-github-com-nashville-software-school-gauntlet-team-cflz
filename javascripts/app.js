@@ -63,11 +63,13 @@ $(document).ready(function() {
       console.log(userName)
   });
 
-// // Captures userName
-//     $("[next='card--weapon']").on('click', function(e) {
-//       userName = $('#player-name').val();
-//       userName = new Gauntlet.Combatants.Human()
-//       userName.setClass = new Gauntlet.GuildHall.
-//   });
-
+// Captures userClass
+    $("[next='card--weapon']").on('click', function(e) {
+     userClass = $(this).toggleClass('selected');
+     userName.setClass = new Gauntlet.Guildhall.userClass();
+     console.log(userName)
 });
+
+  });
+
+
