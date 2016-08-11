@@ -145,10 +145,9 @@ body {
   width: auto;
 }
 #battleground {
-
   overflow: auto;
   background-size: cover;
-  height: 980px;
+  height: 100%;
   margin: 0;
   padding: 0;
   width: 100%;

@@ -82,8 +82,19 @@ $(document).ready(function() {
      console.log(champ)
   });
 
+var attack = function () {
+  var foe = new Gauntlet.Combatants.Drumpf()
+  console.log(champ);
+  var monsterHealth = foe.health - champ.weapon.damage
+  var playerHealth = champ.health - foe.weapon.damage
 
-
+  if ((monsterHealth) <= 0) {
+    alert("Game over. You win!")
+  } else if (playerHealth <= 0) {
+    alert("Game over. You lose.")
+  }
+}
+  $("#attack").click(attack)
 
   /*----------  BATTLEGROUND!!  ----------*/
 var images = ['japan.gif', 'mexican_background.gif', 'planebackground.gif', 'street.gif', 'war.gif'];

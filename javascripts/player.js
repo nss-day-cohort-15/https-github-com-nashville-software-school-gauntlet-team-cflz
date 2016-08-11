@@ -41,7 +41,7 @@ Gauntlet.Combatants.Player = function(name) {
 };
 
 Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
-  this.weapon = newWeapon;
+  this.weapon = new Gauntlet.WeaponsCloset[champWeapon];
 }
 
 Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
@@ -50,7 +50,7 @@ Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
 
 
 Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
-  this.spell = newSpell;
+  this.spell = new Gauntlet.SpellBook[champSpell];;
 }
 
 Gauntlet.Combatants.Player.prototype.generateClass = function() {
