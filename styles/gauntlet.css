@@ -120,5 +120,11 @@ body {
   padding-bottom: 40px;
 }
 /*----------  BATTLEGROUND!!  ----------*/
+.p1Stats {
+  float: left;
+}
+.p2Stats {
+  float: right;
+}
 
 
