@@ -44,6 +44,10 @@ Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
   this.weapon = newWeapon;
 }
 
+Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
+  this.class = new Gauntlet.GuildHall[newClass]();
+}
+
 Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
   this.spell = newSpell;
 }
@@ -67,9 +71,9 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
   Define the base properties for a human in a
   constructor function.
  */
-Gauntlet.Combatants.Human = function() {
+Gauntlet.Combatants.Human = function(name) {
   var randomSkin;
-
+  this.playerName = name;
   this.species = "Human";
   this.intelligence = this.intelligence + 20;
 
