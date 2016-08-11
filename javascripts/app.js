@@ -55,5 +55,14 @@ $(document).ready(function() {
     $(".card").hide();
     $("." + previousCard).show();
   });
+  // Captures userName
+    $("[next='card--class']").on('click', function(e) {
+      userName = $('#player-name').val();
+    console.log(userName)
+  });
+  // Captures selected class
+  $(".btn__text").click(function() {
+    console.log("User class", (this).innerText);
+  });
 
 });

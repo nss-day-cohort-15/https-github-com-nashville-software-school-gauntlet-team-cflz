@@ -15,7 +15,6 @@ Gauntlet.Combatants.Orc = function() {
     return this.class;
   }
 };
-
 Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
 
 Gauntlet.Combatants.Giant = function() {
@@ -26,6 +25,7 @@ Gauntlet.Combatants.Giant = function() {
   this.generateClass = function() {
     // Get a random index from the allowed classes array
     var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+
 
     // Get the string at the index
     var randomClass = this.allowedClasses[random];

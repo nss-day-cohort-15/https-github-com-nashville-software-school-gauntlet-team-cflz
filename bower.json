@@ -1,0 +1,21 @@
+{
+  "name": "TEAM CFLZ",
+  "homepage": "https://github.com/nss-day-cohort-15/https-github-com-nashville-software-school-gauntlet-team-cflz",
+  "authors": [
+    "Chris Smalley <chrism.smalley@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0"
+  }
+}
