@@ -72,6 +72,8 @@ Gauntlet.GuildHall.Monk.prototype = new Gauntlet.GuildHall.Fighter();
       - Conujurer
       - Sorcerer
  */
+
+
 Gauntlet.GuildHall.Mage = function() {
   this.name = "Mage";
   this.magical = true;
@@ -123,4 +125,3 @@ Gauntlet.GuildHall.Sorcerer.prototype = new Gauntlet.GuildHall.Mage();
       - Ninja
       - Assassin
  */
-

@@ -30,16 +30,43 @@ Gauntlet.WeaponsCloset.Shuriken = function() {
   this.damage = Math.floor(Math.random() * 10 + 10);
   this.type = this.damageTypes[1];
 };
-Gauntlet.WeaponsCloset.PocketSand.prototype = new Gauntlet.WeaponsCloset.Weapon();
+Gauntlet.WeaponsCloset.Shuriken.prototype = new Gauntlet.WeaponsCloset.Weapon();
 
 Gauntlet.WeaponsCloset.PoisonDart = function() {
   this.name = "Poison-Dart";
   this.damage = Math.floor(Math.random() * 10 + 10);
   this.type = this.damageTypes[1];
 };
-Gauntlet.WeaponsCloset.PocketSand.prototype = new Gauntlet.WeaponsCloset.Weapon();
+Gauntlet.WeaponsCloset.PoisonDart.prototype = new Gauntlet.WeaponsCloset.Weapon();
 
+//FIGHTER CLASS WEAPONS
+Gauntlet.WeaponsCloset.KnottedClub = function() {
+  this.name = "Knotted-Club";
+  this.damage = Math.floor(Math.random() * 10 + 10);
+  this.type = this.damageTypes[0];
+};
+Gauntlet.WeaponsCloset.KnottedClub.prototype = new Gauntlet.WeaponsCloset.Weapon();
 
+Gauntlet.WeaponsCloset.HandOfGod = function() {
+  this.name = "Hand of God";
+  this.damage = Math.floor(Math.random() * 10 + 10);
+  this.type = this.damageTypes[0];
+};
+Gauntlet.WeaponsCloset.HandOfGod.prototype = new Gauntlet.WeaponsCloset.Weapon();
+
+Gauntlet.WeaponsCloset.GjereTheSword = function() {
+  this.name = "Gjere the Sword";
+  this.damage = Math.floor(Math.random() * 10 + 10);
+  this.type = this.damageTypes[0];
+};
+Gauntlet.WeaponsCloset.HandOfGod.prototype = new Gauntlet.WeaponsCloset.Weapon();
+
+Gauntlet.WeaponsCloset.BigSword = function() {
+  this.name = "Sword of Over Compensation";
+  this.damage = Math.floor(Math.random() * 10 + 10);
+  this.type = this.damageTypes[0];
+};
+Gauntlet.WeaponsCloset.BigSword.prototype = new Gauntlet.WeaponsCloset.Weapon();
 
 
 
