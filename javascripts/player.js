@@ -48,6 +48,7 @@ Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
   this.class = new Gauntlet.GuildHall[newClass]();
 }
 
+
 Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
   this.spell = newSpell;
 }

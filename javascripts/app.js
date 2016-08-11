@@ -60,6 +60,7 @@ $(document).ready(function() {
   });
   // Captures userName
     $("[next='card--class']").on('click', function(e) {
+
       var champName = $('#player-name').val();
       champ = new Gauntlet.Combatants.Human(champName)
       console.log(champ)
@@ -81,6 +82,5 @@ $(document).ready(function() {
      console.log(champ)
   });
 
-  });
-
+});
 
