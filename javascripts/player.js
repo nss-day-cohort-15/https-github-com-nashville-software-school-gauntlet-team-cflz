@@ -73,6 +73,7 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
   constructor function.
  */
 
+
 Gauntlet.Combatants.Human = function(name) {
 
   var randomSkin;

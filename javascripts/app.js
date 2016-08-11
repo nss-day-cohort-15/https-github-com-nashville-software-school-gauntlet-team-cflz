@@ -2,6 +2,16 @@
 /*
   Test code to generate a human player and an orc player
  */
+var warrior = new Gauntlet.Combatants.Human();
+warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
+warrior.generateClass();  // This will be used for "Surprise me" option
+console.log(warrior.toString());
+
+var orc = new Gauntlet.Combatants.Orc();
+orc.generateClass();
+orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
+console.log(orc.toString());
+
 // var warrior = new Gauntlet.Combatants.Human();
 // warrior.setWeapon(new WarAxe());
 // warrior.generateClass();  // This will be used for "Surprise me" option
@@ -83,4 +93,7 @@ $(document).ready(function() {
   });
 
 });
+
+
+
 
