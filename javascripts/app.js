@@ -1,3 +1,13 @@
+var warrior = new Gauntlet.Combatants.Human();
+warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
+warrior.generateClass();  // This will be used for "Surprise me" option
+console.log(warrior.toString());
+
+var orc = new Gauntlet.Combatants.Orc();
+orc.generateClass();
+orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
+console.log(orc.toString());
+
 
 /*
   Test code to generate a human player and an orc player
@@ -81,6 +91,42 @@ $(document).ready(function() {
      console.log(champ)
   });
 
+
+  $(".champ").click(function() {
+     console.log("User class", (this).innerText);
+     var champClass = (this).innerText.toLowerCase();
+     champClass = champClass.charAt(0).toUpperCase() + champClass.slice(1)
+     console.log(champClass)
+     champ.setClass(champClass);
+     console.log(champ)
+  });
+
+$(".champ").click(function() {
+     console.log("User class", (this).innerText);
+     var champClass = (this).innerText.toLowerCase();
+     champClass = champClass.charAt(0).toUpperCase() + champClass.slice(1)
+     console.log(champClass)
+     champ.setClass(champClass);
+     console.log(champ)
+  });
+
+
+
   });
+
+//on attack:
+
+// function 1: generate enemy {trump}
+// function 2. combat, some kind of DOM output
+
+// function combat (enemy, champ) {
+// var enemy.health = enemy.health;
+// var playerDamage = player.Weapon.damage;
+
+//  if (enemy.Weapon.damange > player.Weapon.damage) {
+//   console.log('you lose, you dumb fuck')
+//  }
+
+// }
 
 
