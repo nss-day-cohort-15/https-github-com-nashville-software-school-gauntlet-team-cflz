@@ -30,6 +30,7 @@ body {
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
+  padding-top: 100px;
 }
 
 .card__button {
@@ -103,3 +104,21 @@ body {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
 }
+/*----------  USER NAME PAGE  ----------*/
+.intro {
+  background-image: url(/img/streetbackground.gif);
+  overflow: auto;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  height: 800px;
+  margin: 0;
+  padding: 0;
+
+}
+#titlemain > img {
+  padding-bottom: 40px;
+}
+/*----------  BATTLEGROUND!!  ----------*/
+
+
