@@ -1,3 +1,4 @@
+
 var Weapon = function() {
   this.name = "bare hands";
   this.damage = 1;
@@ -28,4 +29,3 @@ var WarAxe = function() {
   this.hands = 2;
 };
 WarAxe.prototype = new Weapon();
-

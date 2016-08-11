@@ -1,3 +1,4 @@
+
 /*
   Test code to generate a human player and an orc player
  */
@@ -54,6 +55,11 @@ $(document).ready(function() {
     var previousCard = $(this).attr("previous");
     $(".card").hide();
     $("." + previousCard).show();
+  });
+  // Captures userName
+    $("[next='card--class']").on('click', function(e) {
+      userName = $('#player-name').val();
+    console.log(userName)
   });
 
 });

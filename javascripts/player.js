@@ -9,7 +9,7 @@ Gauntlet.Combatants = {};
   whether a human player or a monster.
  */
 Gauntlet.Combatants.Player = function(name) {
-  this.species = null;
+  // this.species = null;
   this.class = null;
   this.weapon = null;
 
@@ -60,7 +60,7 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
 };
 
 /*
-  Define the base properties for a human in a 
+  Define the base properties for a human in a
   constructor function.
  */
 Gauntlet.Combatants.Human = function() {
@@ -79,7 +79,7 @@ Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
 
 
 /*
-  Define the base properties for a monster in a 
+  Define the base properties for a monster in a
   constructor function.
  */
 Gauntlet.Combatants.Monster = function() {
@@ -89,4 +89,54 @@ Gauntlet.Combatants.Monster = function() {
 };
 
 Gauntlet.Combatants.Monster.prototype = new Gauntlet.Combatants.Player();
+
+Gauntlet.Combatants.Orc = function() {
+  this.health = this.health + 20;
+  this.species = "Orc";
+  this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
+
+  this.generateClass = function() {
+    // Get a random index from the allowed classes array
+    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+
+    // Get the string at the index
+    var randomClass = this.allowedClasses[random];
+
+    // Composes the corresponding player class into the player object
+    this.class = new Gauntlet.GuildHall[randomClass]();
+    return this.class;
+  }
+};
+
+Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
+
+
+Gauntlet.Combatants.Giant = function() {
+  this.health = this.health + 20;
+  this.species = "Giant";
+  this.allowedClasses = ["Giant", "Monk", "Berserker", "Thief", "Ninja"]; // yes, giant
+
+  this.generateClass = function() {
+    // Get a random index from the allowed classes array
+    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+
+    // Get the string at the index
+    var randomClass = this.allowedClasses[random];
+
+    // Composes the corresponding player class into the player object
+    this.class = new Gauntlet.GuildHall[randomClass]();
+    return this.class;
+  }
+};
+
+Gauntlet.Combatants.Giant.prototype = new Gauntlet.Combatants.Monster();
+
+Gauntlet.Combatants.Drumpf = function() {
+  this.health = this.health + 50;
+  this.species = "Drumpf";
+  this.allowedClasses = ["Berserker", "Thief"];
+};
+
+Gauntlet.Combatants.Drumpf.prototype = new Gauntlet.Combatants.Monster();
+
 
