@@ -22,7 +22,7 @@ Gauntlet.Combatants.Player = function(name) {
   this.intelligence = 90;
 
   this.toString = function() {
-    var output = [this.playerName,
+    var output = [this.userName,
       ": a ",
       this.skinColor,
       " skinned ",
@@ -72,6 +72,7 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
   Define the base properties for a human in a
   constructor function.
  */
+
 
 Gauntlet.Combatants.Human = function(name) {
 
