@@ -13,7 +13,7 @@ Gauntlet.Combatants.Player = function(name) {
   this.class = null;
   this.weapon = null;
 
-  this.playerName = name || "unknown adventurer";
+  this.userName = name || "unknown adventurer";
   this.health = Math.floor(Math.random() * 40 + 50);
   this.limbs = ["head", "neck", "arm", "leg", "torso"];
   this.skinColor = "gray";
@@ -60,10 +60,10 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
 };
 
 /*
-  Define the base properties for a human in a 
+  Define the base properties for a human in a
   constructor function.
  */
-Gauntlet.Combatants.Human = function() {
+Gauntlet.Combatants.Human = function() { // human will be come user
   var randomSkin;
 
   this.species = "Human";
@@ -79,7 +79,7 @@ Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
 
 
 /*
-  Define the base properties for a monster in a 
+  Define the base properties for a monster in a
   constructor function.
  */
 Gauntlet.Combatants.Monster = function() {
