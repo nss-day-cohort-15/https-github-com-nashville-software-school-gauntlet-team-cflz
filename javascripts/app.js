@@ -86,7 +86,8 @@ $(document).ready(function() {
 
 
   /*----------  BATTLEGROUND!!  ----------*/
-
+var images = ['japan.gif', 'mexican_background.gif', 'planebackground.gif', 'street.gif', 'war.gif'];
+ $('#battleground').css({'background-image': 'url(/img/bg/' + images[Math.floor(Math.random() * images.length)] + ')'})
 
 });
 
