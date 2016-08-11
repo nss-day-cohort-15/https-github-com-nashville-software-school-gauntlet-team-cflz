@@ -1,3 +1,4 @@
+
 /*
   Test code to generate a human player and an orc player
  */
@@ -58,11 +59,15 @@ $(document).ready(function() {
   // Captures userName
     $("[next='card--class']").on('click', function(e) {
       userName = $('#player-name').val();
-    console.log(userName)
+      userName = new Gauntlet.Combatants.Human()
+      console.log(userName)
   });
-  // Captures selected class
-  $(".btn__text").click(function() {
-    console.log("User class", (this).innerText);
+
+// Captures userClass
+    $("[next='card--weapon']").on('click', function(e) {
+     userClass = $(this).toggleClass('selected');
+     userName.setClass = new Gauntlet.Guildhall.userClass();
+     console.log(userName)
   });
 
 });
