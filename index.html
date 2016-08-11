@@ -13,11 +13,12 @@
 
   <article id="game-container">
 
-    <section id="player-setup" class="card card--name">
+    <section id="player-setup" class="card card--name intro">
+
       <div class="card__prompt">
-        <div>RECORD YOUR NAME, ADVENTURER</div>
+        <div id="titlemain"><img src="/img/NSS%20Gauntlet%20Challenge.png"></div>
         <div class="field">
-          <input type="text" autofocus="true" id="player-name" class="field__textinput">
+          <input type="text" autofocus="true" id="player-name" class="field__textinput" placeholder="Enter your name fighter!">
         </div>
       </div>
 
@@ -123,13 +124,7 @@
                 <span class="btn__text champ">Assassin</span>
               </a>
             </div>
-<!--
-            <div class="card__button">
-              <a class="class__link btn btn--big btn--yellow" href="#">
-                <span class="btn__prompt">></span>
-                <span class="btn__text">surprise me</span>
-              </a>
-            </div> -->
+
           </div>
         </div>
       </div>
@@ -254,7 +249,61 @@
     </section>
 
 
-    <section id="battleground" class="card card--battleground"></section>
+    <section id="battleground" class="card card--battleground">
+      <div class = "container-fluid battleground">
+        <div class="row">
+      <!-- BATTLE STATUS BAR -->
+
+         <!-- FIGHTER STATS -->
+          <div class="col-md-4 col-lg-4">
+            <div class="p1Stats"><h2>Fighter Filler Text</h2></div>
+          </div>
+
+          <div class="col-md-4 col-lg-4">
+            <!-- ATTACK AND NEW BATTLE BUTTONS -->
+            <button type="button" class="btn btn--big btn--blue" value="Refresh Page" onClick="window.location.reload()">New Battle</button>
+            <button id="attack" type="button" class="btn btn--big btn--blue">Attack</button>
+
+          </div>
+
+         <!-- ENEMY STATS -->
+          <div class="col-md-4 col-lg-4">
+            <div class="p2Stats"><h2>Fighter Filler Text</h2></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-lg-12">
+            <!-- BATTLE AREA -->
+          <div class="fighter">
+            <!-- fighter -->
+            <div id="fighterChar" class="fighterImg ">
+              <img src="img/Bruce_Lee.png">
+            </div>
+
+            <!-- magical -->
+            <div id="magicalChar" class="fighterImg hide">
+             <img src="img/gandalf.png">
+            </div>
+
+            <!-- stealth -->
+            <div id="stealthChar" class="fighterImg hide">
+             <img src="img/jason_bourne.png">
+            </div>
+
+            <!-- BAD GUYS -->
+            <div id="trump" class="enemyImg" >
+              <img src="img/Donald_Trump.png">
+            </div>
+
+            <div id="scott" class="enemyImg hide" >
+              <img src="img/Andre_The_Giant.png">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
 
   </article>
 

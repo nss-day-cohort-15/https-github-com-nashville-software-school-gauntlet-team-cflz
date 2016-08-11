@@ -33,7 +33,7 @@ $(document).ready(function() {
    */
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
-    var moveAlong = false;
+    var moveAlong = true;
 
     switch (nextCard) {
       case "card--class":
@@ -60,6 +60,7 @@ $(document).ready(function() {
   });
   // Captures userName
     $("[next='card--class']").on('click', function(e) {
+
       var champName = $('#player-name').val();
       champ = new Gauntlet.Combatants.Human(champName)
       console.log(champ)
@@ -81,6 +82,62 @@ $(document).ready(function() {
      console.log(champ)
   });
 
-  });
+  var attack = function () {
+    var foe = new Gauntlet.Combatants.Drumpf()
+    console.log(champ);
+    var monsterHealth = foe.health - champ.weapon.damage
+    var playerHealth = champ.health - foe.weapon.damage
 
+    if ((monsterHealth) <= 0) {
+      alert("Game over. You win!")
+    } else if (playerHealth <= 0) {
+      alert("Game over. You lose.")
+    }
+  }
+    $("#attack").click(attack)
+
+/*----------  BATTLEGROUND!!  ----------*/
+
+  // Changes battle background on refresh
+  var images = ['japan.gif', 'mexican_background.gif', 'planebackground.gif', 'street.gif', 'war.gif'];
+   $('#battleground').css({'background-image': 'url(/img/bg/' + images[Math.floor(Math.random() * images.length)] + ')'})
+
+   // ANIMATIONS
+   var characterInter = setInterval(moveCharacter, 1);
+    var leftOffset = 0;
+    function moveCharacter() {
+       $(".characterImg").offset({ left: leftOffset });
+        leftOffset = leftOffset + 5;
+        if (leftOffset > 600) {
+
+          $(".enemyStat").effect( "bounce", "fast" );
+          $("#battleground").effect( "shake", "fast" );
+         $(".fighterImg").animate({left: "-=600"}, 1);
+          clearInterval(characterInter);
+        }
+    };
+  // }
+
+  var monsterInter = setInterval(moveMonster, 1);
+  var rightOffset = 0;
+  function moveMonster() {
+     $(".enemyImg").offset({ left: rightOffset });
+      rightOffset = rightOffset - 5;
+      if (rightOffset < -600) {
+
+        $("#battleground").effect( "shake", "fast" );
+        $(".playerStat").effect( "bounce", "fast" );
+
+       $(".enemyImg").animate({left: "+=600"}, 1);
+        clearInterval(monsterInter);
+      }
+  };
+  clearInterval(moveMonster);
+
+
+
+
+
+
+});
 
