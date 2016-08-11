@@ -22,7 +22,7 @@ Gauntlet.Combatants.Player = function(name) {
   this.intelligence = 90;
 
   this.toString = function() {
-    var output = [this.playerName,
+    var output = [this.userName,
       ": a ",
       this.skinColor,
       " skinned ",
