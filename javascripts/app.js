@@ -106,35 +106,35 @@ $(document).ready(function() {
 
   $("#attack").click(function battle(){
 
-    var characterInter = setInterval(moveCharacter, 1);
+    var fighterInterval = setInterval(moveFighter, 1);
     var leftOffset = 0;
-    function moveCharacter() {
+    function moveFighter() {
        $(".fighterImg").offset({ left: leftOffset });
         leftOffset = leftOffset + 5;
         if (leftOffset > 720) {
 
-          // // $(".enemyStat").effect( "bounce", "fast" );
+          // // $(".p1Stats").effect( "bounce", "fast" );
           // $("battleground").effect( "shake", "fast" );
          $(".fighterImg").animate({left: "-=720"}, 1);
-          clearInterval(characterInter);
+          clearInterval(fighterInterval);
         }
     };
 
-    var monsterInter = setInterval(moveMonster, 1);
+    var enemyInterval = setInterval(moveEnemy, 1);
     var rightOffset = 0;
-    function moveMonster() {
+    function moveEnemy() {
        $(".enemyImg").offset({ left: rightOffset });
         rightOffset = rightOffset - 5;
         if (rightOffset < -720) {
 
           // $("battleground").effect( "shake", "fast" );
-          // $(".playerStat").effect( "bounce", "fast" );
+          // $(".p2Stats").effect( "bounce", "fast" );
 
          $(".enemyImg").animate({left: "+=720"}, 1);
-          clearInterval(monsterInter);
+          clearInterval(enemyInterval);
         }
     };
-    clearInterval(moveMonster);
+    clearInterval(moveEnemy);
   });
 
 
