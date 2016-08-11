@@ -15,8 +15,8 @@ Gauntlet.Combatants.Orc = function() {
     return this.class;
   }
 };
-
 Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
+
 Gauntlet.Combatants.Giant = function() {
   this.health = this.health + 20;
   this.species = "Giant";
