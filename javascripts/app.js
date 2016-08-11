@@ -1,12 +1,12 @@
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
-warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
+// var warrior = new Gauntlet.Combatants.Human();
+// warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
+// warrior.generateClass();  // This will be used for "Surprise me" option
+// console.log(warrior.toString());
 
-var orc = new Gauntlet.Combatants.Orc();
-orc.generateClass();
-orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
-console.log(orc.toString());
+// var orc = new Gauntlet.Combatants.Orc();
+// orc.generateClass();
+// orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
+// console.log(orc.toString());
 
 
 /*
@@ -92,21 +92,24 @@ $(document).ready(function() {
   });
 
 
-  $(".champ").click(function() {
-     console.log("User class", (this).innerText);
-     var champClass = (this).innerText.toLowerCase();
-     champClass = champClass.charAt(0).toUpperCase() + champClass.slice(1)
-     console.log(champClass)
-     champ.setClass(champClass);
+  $(".weapon").click(function(event) {
+     console.log("User weapon", (this).innerText);
+     // var champWeapon = (this).innerText.toLowerCase();
+     var champWeapon = event.currentTarget.id
+
+     // champWeapon = champWeapon.charAt(0).toUpperCase() + champWeapon.slice(1)
+     // console.log(champWeapon)
+     champ.weapon = new Gauntlet.WeaponsCloset[champWeapon]();
+
      console.log(champ)
   });
 
-$(".champ").click(function() {
-     console.log("User class", (this).innerText);
-     var champClass = (this).innerText.toLowerCase();
-     champClass = champClass.charAt(0).toUpperCase() + champClass.slice(1)
-     console.log(champClass)
-     champ.setClass(champClass);
+$(".spell").click(function() {
+     console.log("User spell", (this).innerText);
+     var champSpell = (this).innerText.toLowerCase();
+     champSpell = champSpell.charAt(0).toUpperCase() + champSpell.slice(1)
+     console.log(champSpell)
+     champ.setSpell(champSpell);
      console.log(champ)
   });
 
