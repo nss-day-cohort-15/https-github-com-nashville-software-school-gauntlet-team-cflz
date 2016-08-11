@@ -59,7 +59,15 @@ $(document).ready(function() {
   // Captures userName
     $("[next='card--class']").on('click', function(e) {
       userName = $('#player-name').val();
-    console.log(userName)
+      userName = new Gauntlet.Combatants.Human()
+      console.log(userName)
   });
+
+// // Captures userName
+//     $("[next='card--weapon']").on('click', function(e) {
+//       userName = $('#player-name').val();
+//       userName = new Gauntlet.Combatants.Human()
+//       userName.setClass = new Gauntlet.GuildHall.
+//   });
 
 });
