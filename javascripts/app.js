@@ -42,6 +42,9 @@ $(document).ready(function() {
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
         break;
+      case "card--battleground":
+        moveAlong = ($("#player-name").val() !== "");
+        break;
     }
 
     if (moveAlong) {
@@ -65,13 +68,14 @@ $(document).ready(function() {
       champ = new Gauntlet.Combatants.Human(champName)
       console.log(champ)
   });
+    var foe = new Gauntlet.Combatants.Drumpf()
 
-// // Captures userClass
-//     $("[next='card--weapon']").on('click', function(e) {
-//      userClass = $(this).toggleClass('selected');
-//      userName.setClass = new Gauntlet.Guildhall.userClass();
-//      console.log(userName)
-// });
+// Captures userClass
+    $("[next='card--weapon']").on('click', function(e) {
+     var PlayerClass = $(this).toggleClass('selected');
+     userName.setClass = new Gauntlet.Guildhall.PlayerClass();
+     console.log(userName)
+});
 
   $(".champ").click(function() {
      console.log("User class", (this).innerText);
