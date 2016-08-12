@@ -19,9 +19,13 @@ Gauntlet.SpellBook.Spell = function() {
     return this.name + " of " + this.type + " for " + this.damage + " damage!";
   }
 };
-// Gauntlet.SpellBook.Player.prototype.setSpell = function(newSpell) {
-//   this.spell = new Gauntlet.SpellBook[newSpell];
-// }
+
+
+Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
+  this.spell = newSpell;
+}
+
+
 /*
   An elemental sphere that can be cast by a magical class
  */
@@ -34,6 +38,9 @@ Gauntlet.SpellBook.Sphere = function() {
 };
 
 Gauntlet.SpellBook.Sphere.prototype = new Gauntlet.SpellBook.Spell();
+
+
+
 
 Gauntlet.SpellBook.Wand = function() {
   this.name = "wand";
