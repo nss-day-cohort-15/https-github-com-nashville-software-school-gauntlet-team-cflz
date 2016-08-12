@@ -103,7 +103,7 @@ $(document).ready(function() {
 
      // champWeapon = champWeapon.charAt(0).toUpperCase() + champWeapon.slice(1)
      // console.log(champWeapon)
-     champ.weapon = new Gauntlet.WeaponsCloset[champWeapon]();
+     champ.setWeapon(champWeapon);
      // champ.setWeapon(champWeapon)
 
 

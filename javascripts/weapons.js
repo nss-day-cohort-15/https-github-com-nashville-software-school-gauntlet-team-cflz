@@ -69,18 +69,6 @@ Gauntlet.WeaponsCloset.PoisonDart = function() {
 };
 Gauntlet.WeaponsCloset.PoisonDart.prototype = new Gauntlet.WeaponsCloset.Weapon();
 
-Gauntlet.WeaponsCloset.Shuriken = function() {
-  this.name = "Shuriken";
-  this.damage = Math.floor(Math.random() * 10 + 10);
-  this.type = this.damageTypes[1];
-};
-Gauntlet.WeaponsCloset.Shuriken.prototype = new Gauntlet.WeaponsCloset.Weapon();
 
-Gauntlet.WeaponsCloset.PoisonDart = function() {
-  this.name = "Poison-Dart";
-  this.damage = Math.floor(Math.random() * 10 + 10);
-  this.type = this.damageTypes[1];
-};
-Gauntlet.WeaponsCloset.PoisonDart.prototype = new Gauntlet.WeaponsCloset.Weapon()
 
 
