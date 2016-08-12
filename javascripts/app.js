@@ -67,47 +67,34 @@ $(document).ready(function() {
 
       var champName = $('#player-name').val();
       champ = new Gauntlet.Combatants.Human(champName)
-      console.log(champ)
   });
 
 
   $(".champ").click(function() {
-    console.log(champ)
-    //  console.log("User class", (this).innerText);
-     // var champClass = (this).innerText.toLowerCase();
-    //  console.log(champClass)
-    //  champClass = champClass.charAt(0)
-     champ.setClass(this.id);
-     console.log(champ)
-  });
+    champ.setClass(this.id);
+    if (champ.class.name === "Warrior" || champ.class.name === "Valkyrie" || champ.class.name === "Berserker" || champ.class.name === "Monk") {
+      console.log("Your destiny is to be a fighter!");
+      $("#spell-select").addClass("hide");
+      $("#stealth-select").addClass("hide");
+    }
 
-  // $(".champ").click(function () {
-  //   console.log(champClass);
-  //   if (champClass === "Warrior" || champClass === "Valkyrie" || champClass === "Berserker" || champClass === "Monk") {
-  //     console.log("you picked figher");
-  //     $("#spell-select").addClass("hidden");
-  //   }
+    if (champ.class.name === "Wizard" || champ.class.name === "Conjurer" || champ.class.name === "Sorcerer") {
+      console.log("Your destiny is to be a magician!");
+      $("#weapon-select").addClass("hide");
+      $("#stealth-select").addClass("hide");
+    }
 
-  //   if (champClass === "Wizard" || champClass === "Conjurer" || champClass === "Sorcerer") {
-  //     console.log("you picked mage");
-  //     $("#weapon-select").addClass("hidden");
-  //   }
-
-  //   if (champClass === "Thief" || champClass === "Ninja" || champClass === "Assassin") {
-  //     console.log("you picked stealth");
-  //     $("#spell-select").addClass("hidden");
-  //   }
+    if (champ.class.name === "Thief" || champ.class.name === "Ninja" || champ.class.name === "Assassin") {
+      console.log("Your destiny is to be sneaky!");
+      $("#spell-select").addClass("hide");
+      $("#weapon-select").addClass("hide");
+    }
 
     $(".weapon").click(function(event) {
      console.log("User weapon", (this).innerText);
-     // var champWeapon = (this).innerText.toLowerCase();
      var champWeapon = event.currentTarget.id
-
-     // champWeapon = champWeapon.charAt(0).toUpperCase() + champWeapon.slice(1)
-     // console.log(champWeapon)
      champ.setWeapon(champWeapon);
-     // champ.setWeapon(champWeapon)
-
+    })
 
 
      console.log(champ)
@@ -119,7 +106,7 @@ $(document).ready(function() {
     function battleCards() {
       console.log("My health",champ.health);
       console.log("What is my name?", champ.playerName);
-      console.log("champ Class", champ.class);
+      console.log("champ Class", champ.class.name);
 
       // orc = new Gauntlet.Combatants.Orc();
       // orc.setWeapon(new KnottedClub());
@@ -134,7 +121,7 @@ $(document).ready(function() {
                      `<div class="health">Health: ${champ.health}</div>`;
       $(".p1Stats").html(playerOutput);
 
-      // enemyOutput = `<p>${orc.monsterName}</p>` +
+      // var enemyOutput = `<p>${orc.monsterName}</p>` +
       //               `<div class="health">Health: ${orc.health}</div>`;
       // $(".p2Stats").html(enemyOutput);
 
