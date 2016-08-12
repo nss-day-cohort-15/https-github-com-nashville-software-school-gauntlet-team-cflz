@@ -65,7 +65,9 @@
             <div id="Berserker" class="card__button champ">
               <a class="class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
+
                 <span class="btn__text">Berserker</span>
+
               </a>
             </div>
 
@@ -73,7 +75,6 @@
               <a class="class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text champ">Monk</span>
-
               </a>
             </div>
           </div>
@@ -121,7 +122,6 @@
                 <span class="btn__text">Assassin</span>
               </a>
             </div>
-
           </div>
         </div>
       </div>
@@ -160,6 +160,7 @@
               </a>
             </div>
 
+
             <div class="card__button weapon" id="HandOfGod">
               <a class="class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
@@ -177,6 +178,7 @@
               <a class="class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Sword of Over Compensation</span>
+
               </a>
             </div>
           </div>
@@ -187,14 +189,16 @@
            href="#"
            next="card--battleground">
           <span class="btn__prompt">></span>
-          <span class="btn__text">defeat your enemies</span>
+          <span class="btn__text battlefield">GO TO BATTLE</span>
         </a>
       </div>
     </section>
+
 <!-- STEALTH CLASS CARDS -->
-    <section id="weapon-select" class="card card--weapon">
+    <section id="stealth-select" class="card card--weapon">
       <div class="card__prompt">
         <div>choose your weapon</div>
+
         <div>
           <a class="card__back btn btn--small"
              href="#"
@@ -204,6 +208,7 @@
           </a>
         </div>
       </div>
+
 
       <div class="container-fluid">
         <div class="row">
@@ -241,6 +246,7 @@
         </a>
       </div>
     </section>
+
 <!-- Spell Cards -->
 
     <section id="spell-select" class="card card--weapon">
@@ -262,7 +268,7 @@
             <div class="card__button weapon" id="Sphere">
               <a class="class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
-                <span class="btn__text">Sphere</span>
+                <span class="btn__text spell">Sphere</span>
               </a>
             </div>
 
@@ -279,12 +285,14 @@
                 <span class="btn__text">Sceptre</span>
               </a>
             </div>
+
             <div class="card__button weapon" id="TeslaCoil">
               <a class="class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
                 <span class="btn__text">Tesla Coil</span>
               </a>
             </div>
+
             <div class="card__button weapon" id="Hadouken">
               <a class="class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
@@ -301,7 +309,7 @@
            href="#"
            next="card--battleground">
           <span class="btn__prompt">></span>
-          <span class="btn__text">defeat your enemies</span>
+          <span class="btn__text attack">Go to Battle</span>
         </a>
       </div>
     </section>
@@ -334,7 +342,7 @@
             <!-- BATTLE AREA -->
           <div class="fighter">
             <!-- fighter -->
-            <div id="fighterChar" class="fighterImg ">
+            <div id="fighterChar" class="fighterImg hide">
               <img src="img/Bruce_Lee.png">
             </div>
 
@@ -349,7 +357,7 @@
             </div>
 
             <!-- BAD GUYS -->
-            <div id="trump" class="enemyImg" >
+            <div id="trump" class="enemyImg hide" >
               <img src="img/Donald_Trump.png">
             </div>
 
@@ -358,13 +366,9 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
-
-
   </article>
-
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="javascripts/player.js"></script>
   <script src="javascripts/classes.js"></script>

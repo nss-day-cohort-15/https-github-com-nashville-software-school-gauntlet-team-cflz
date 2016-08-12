@@ -1,7 +1,27 @@
+// var warrior = new Gauntlet.Combatants.Human();
+// warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
+// warrior.generateClass();  // This will be used for "Surprise me" option
+// console.log(warrior.toString());
+
+// var orc = new Gauntlet.Combatants.Orc();
+// orc.generateClass();
+// orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
+// console.log(orc.toString());
+
 
 /*
   Test code to generate a human player and an orc player
  */
+var warrior = new Gauntlet.Combatants.Human();
+warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
+warrior.generateClass();  // This will be used for "Surprise me" option
+console.log(warrior.toString());
+
+var orc = new Gauntlet.Combatants.Orc();
+orc.generateClass();
+orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
+console.log(orc.toString());
+
 // var warrior = new Gauntlet.Combatants.Human();
 // warrior.setWeapon(new WarAxe());
 // warrior.generateClass();  // This will be used for "Surprise me" option
@@ -66,7 +86,6 @@ $(document).ready(function() {
 
       var champName = $('#player-name').val();
       champ = new Gauntlet.Combatants.Human(champName)
-      console.log(champ)
   });
     var drumpf = new Gauntlet.Combatants.Drumpf()
 
@@ -80,42 +99,36 @@ $(document).ready(function() {
 
 
   $(".champ").click(function() {
-    console.log(champ)
-    //  console.log("User class", (this).innerText);
-     // var champClass = (this).innerText.toLowerCase();
-    //  console.log(champClass)
-    //  champClass = champClass.charAt(0)
-     champ.setClass(this.id);
-     console.log(champ)
-  });
+    champ.setClass(this.id);
+    if (champ.class.name === "Warrior" || champ.class.name === "Valkyrie" || champ.class.name === "Berserker" || champ.class.name === "Monk") {
+      console.log("Your destiny is to be a fighter!");
+      $("#spell-select").addClass("hide");
+      $("#stealth-select").addClass("hide");
+      $("#fighterChar").removeClass('hide');
+      $("#trump").removeClass('hide');
+    }
 
-  // $(".champ").click(function () {
-  //   console.log(champClass);
-  //   if (champClass === "Warrior" || champClass === "Valkyrie" || champClass === "Berserker" || champClass === "Monk") {
-  //     console.log("you picked figher");
-  //     $("#spell-select").addClass("hidden");
-  //   }
+    if (champ.class.name === "Wizard" || champ.class.name === "Conjurer" || champ.class.name === "Sorcerer") {
+      console.log("Your destiny is to be a magician!");
+      $("#weapon-select").addClass("hide");
+      $("#stealth-select").addClass("hide");
+      $("#magicalChar").removeClass('hide');
+      $("#scott").removeClass('hide');
+    }
 
-  //   if (champClass === "Wizard" || champClass === "Conjurer" || champClass === "Sorcerer") {
-  //     console.log("you picked mage");
-  //     $("#weapon-select").addClass("hidden");
-  //   }
-
-  //   if (champClass === "Thief" || champClass === "Ninja" || champClass === "Assassin") {
-  //     console.log("you picked stealth");
-  //     $("#spell-select").addClass("hidden");
-  //   }
+    if (champ.class.name === "Thief" || champ.class.name === "Ninja" || champ.class.name === "Assassin") {
+      console.log("Your destiny is to be sneaky!");
+      $("#spell-select").addClass("hide");
+      $("#weapon-select").addClass("hide");
+      $("#stealthChar").removeClass('hide');
+      $("#trump").removeClass('hide');
+    }
 
     $(".weapon").click(function(event) {
      console.log("User weapon", (this).innerText);
-     // var champWeapon = (this).innerText.toLowerCase();
      var champWeapon = event.currentTarget.id
-
-     // champWeapon = champWeapon.charAt(0).toUpperCase() + champWeapon.slice(1)
-     // console.log(champWeapon)
      champ.setWeapon(champWeapon);
-     // champ.setWeapon(champWeapon)
-
+    })
 
 
      console.log(champ)
@@ -180,9 +193,6 @@ function battleCards() {
        $(".fighterImg").offset({ left: leftOffset });
         leftOffset = leftOffset + 5;
         if (leftOffset > 720) {
-
-          // // $(".p1Stats").effect( "bounce", "fast" );
-          // $("battleground").effect( "shake", "fast" );
          $(".fighterImg").animate({left: "-=720"}, 1);
           clearInterval(fighterInterval);
         }
@@ -195,19 +205,12 @@ function battleCards() {
         rightOffset = rightOffset - 5;
         if (rightOffset < -720) {
 
-          // $("battleground").effect( "shake", "fast" );
-          // $(".p2Stats").effect( "bounce", "fast" );
-
          $(".enemyImg").animate({left: "+=720"}, 1);
           clearInterval(enemyInterval);
         }
     };
     clearInterval(moveEnemy);
   });
-
-
-
-
 
 });
 

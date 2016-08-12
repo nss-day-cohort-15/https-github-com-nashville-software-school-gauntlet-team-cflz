@@ -41,16 +41,15 @@ Gauntlet.Combatants.Player = function(name) {
 };
 
 Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
-  this.weapon = new Gauntlet.WeaponsCloset[newWeapon];
+  this.weapon = new Gauntlet.WeaponsCloset[newWeapon]();
 }
 
 Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
-  console.log("new Class", newClass)
-  this.class = new Gauntlet.GuildHall[newClass];
+  this.class = new Gauntlet.GuildHall[newClass]();
 }
 
 Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
-  this.spell = new Gauntlet.SpellBook[newSpell];;
+  this.spell = new Gauntlet.SpellBook[newSpell]();
 }
 
 Gauntlet.Combatants.Player.prototype.generateClass = function() {
@@ -72,6 +71,7 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
   Define the base properties for a human in a
   constructor function.
  */
+
 
 Gauntlet.Combatants.Human = function(name) {
 
