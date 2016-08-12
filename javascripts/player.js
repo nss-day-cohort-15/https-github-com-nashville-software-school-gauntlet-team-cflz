@@ -13,7 +13,7 @@ Gauntlet.Combatants.Player = function(name) {
   this.class = null;
   this.weapon = null;
 
-  this.userName = name || "unknown adventurer";
+  this.playerName = name || "unknown adventurer";
   this.health = Math.floor(Math.random() * 40 + 50);
   this.limbs = ["neck", "arm", "leg", "torso"];
   this.skinColor = "gray";
@@ -41,16 +41,15 @@ Gauntlet.Combatants.Player = function(name) {
 };
 
 Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
-  this.weapon = new Gauntlet.WeaponsCloset[champWeapon];
+  this.weapon = new Gauntlet.WeaponsCloset[newWeapon];
 }
 
 Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
-  this.class = new Gauntlet.GuildHall[newClass]();
+  this.class = new Gauntlet.GuildHall[newClass];
 }
 
-
 Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
-  this.spell = new Gauntlet.SpellBook[champSpell];;
+  this.spell = new Gauntlet.SpellBook[newSpell];;
 }
 
 Gauntlet.Combatants.Player.prototype.generateClass = function() {

@@ -42,6 +42,9 @@ $(document).ready(function() {
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
         break;
+      case "card--battleground":
+          moveAlong = ($("#player-name").val() !== "");
+          break;
     }
 
     if (moveAlong) {
@@ -66,12 +69,6 @@ $(document).ready(function() {
       console.log(champ)
   });
 
-// // Captures userClass
-//     $("[next='card--weapon']").on('click', function(e) {
-//      userClass = $(this).toggleClass('selected');
-//      userName.setClass = new Gauntlet.Guildhall.userClass();
-//      console.log(userName)
-// });
 
   $(".champ").click(function() {
      console.log("User class", (this).innerText);
@@ -79,9 +76,40 @@ $(document).ready(function() {
      champClass = champClass.charAt(0).toUpperCase() + champClass.slice(1)
      console.log(champClass)
      champ.setClass(champClass);
-     console.log(champ)
+     console.log("class", champClass)
   });
 
+  // $("weapon").click(function () {
+  //   console.log(currentClassName);
+  //   if (currentClassName === "Warrior" || currentClassName === "Valkyrie" || currentClassName === "Berserker" || currentClassName === "Monk") {
+  //     console.log("you picked figher");
+  //     $("#spell_select").addClass("hidden");
+  //   }
+
+  //   if (currentClassName === "Wizard" || currentClassName === "Conjurer" || currentClassName === "Sorcerer") {
+  //     console.log("you picked mage");
+  //     $("#weapon_select").addClass("hidden");
+  //   }
+
+  //   if (currentClassName === "Thief" || currentClassName === "Ninja" || currentClassName === "Assassin") {
+  //     console.log("you picked stealth");
+  //     $("#spell_select").addClass("hidden");
+  //   }
+
+    $(".weapon").click(function(event) {
+     console.log("User weapon", (this).innerText);
+     // var champWeapon = (this).innerText.toLowerCase();
+     var champWeapon = event.currentTarget.id
+
+     // champWeapon = champWeapon.charAt(0).toUpperCase() + champWeapon.slice(1)
+     // console.log(champWeapon)
+     champ.weapon = new Gauntlet.WeaponsCloset[champWeapon]();
+     // champ.setWeapon(champWeapon)
+
+
+
+     console.log(champ)
+  });
   // var attack = function () {
   //   var foe = new Gauntlet.Combatants.Drumpf()
   //   console.log(champ);
