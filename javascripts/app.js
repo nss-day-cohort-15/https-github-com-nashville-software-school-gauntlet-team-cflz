@@ -62,6 +62,9 @@ $(document).ready(function() {
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
         break;
+        case "card--battleground":
+        moveAlong = ($("#player-name").val() !== "");
+        break;
     }
 
     if (moveAlong) {
@@ -128,26 +131,6 @@ $(document).ready(function() {
 //      console.log(champ)
 //   });
 
-   $(".card__link").click(function(e) {
-    var nextCard = $(this).attr("next");
-    var moveAlong = true;
-
-    switch (nextCard) {
-      case "card--class":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-      case "card--weapon":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-      case "card--battleground":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-    }
-
-    if (moveAlong) {
-      $(".card").hide();
-      $("." + nextCard).show();
-    }
 
 
 
@@ -210,5 +193,4 @@ $(document).ready(function() {
 
   });
 
-});
 
