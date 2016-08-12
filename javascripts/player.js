@@ -13,8 +13,8 @@ Gauntlet.Combatants.Player = function(name) {
   this.class = null;
   this.weapon = null;
 
-  this.userName = name || "unknown adventurer";
-  this.health = Math.floor(Math.random() * 40 + 50);
+  this.playerName = name || "unknown adventurer";
+  this.health = Math.floor(Math.random() * 40 + 100);
   this.limbs = ["neck", "arm", "leg", "torso"];
   this.skinColor = "gray";
   this.skinColors = [this.skinColor];
@@ -41,16 +41,16 @@ Gauntlet.Combatants.Player = function(name) {
 };
 
 Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
-  this.weapon = newWeapon;
+  this.weapon = new Gauntlet.WeaponsCloset[newWeapon];
 }
 
 Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
-  this.class = new Gauntlet.GuildHall[newClass]();
+  console.log("new Class", newClass)
+  this.class = new Gauntlet.GuildHall[newClass];
 }
 
-
 Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
-  this.spell = newSpell;
+  this.spell = new Gauntlet.SpellBook[newSpell];;
 }
 
 Gauntlet.Combatants.Player.prototype.generateClass = function() {
@@ -79,6 +79,7 @@ Gauntlet.Combatants.Human = function(name) {
   this.playerName = name;
   this.species = "Human";
   this.intelligence = this.intelligence + 20;
+  this.health = this.health
 
   this.skinColors.push("brown", "red", "white", "disease");
   randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
@@ -94,14 +95,17 @@ Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
   constructor function.
  */
 Gauntlet.Combatants.Monster = function() {
-  this.health = this.health - 30;
+  this.name = "Garbledegoop!"
+  this.health = Math.round(Math.random() * 15 + 20)
   this.intelligence = this.intelligence -20;
   this.strength = this.strength + 30;
+  this.damage = Math.round(Math.random() * 10 + 10)
 };
 
 Gauntlet.Combatants.Monster.prototype = new Gauntlet.Combatants.Player();
 
 Gauntlet.Combatants.Orc = function() {
+  this.name = "Dirty Dirty Politician"
   this.health = this.health + 20;
   this.species = "Orc";
   this.allowedClasses = ["Warrior", "Berserker",];
@@ -123,6 +127,7 @@ Gauntlet.Combatants.Orc.prototype = new Gauntlet.Combatants.Monster();
 
 
 Gauntlet.Combatants.Giant = function() {
+  this.name = "HODOR"
   this.health = this.health + 20;
   this.species = "Giant";
   this.allowedClasses = ["Giant", "Monk", "Berserker", "Thief", "Ninja"]; // yes, giant
@@ -143,9 +148,11 @@ Gauntlet.Combatants.Giant = function() {
 Gauntlet.Combatants.Giant.prototype = new Gauntlet.Combatants.Monster();
 
 Gauntlet.Combatants.Drumpf = function() {
-  this.health = this.health + 50;
+  this.name = "Drumpf"
+  this.health = this.health + 20;
   this.species = "Drumpf";
   this.allowedClasses = ["Berserker", "Thief"];
+  this.damage = Math.round(Math.random() * 10 + 20);
 };
 
 Gauntlet.Combatants.Drumpf.prototype = new Gauntlet.Combatants.Monster();
