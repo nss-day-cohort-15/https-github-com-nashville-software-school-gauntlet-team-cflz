@@ -45,6 +45,7 @@ Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
 }
 
 Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
+  console.log("new Class", newClass)
   this.class = new Gauntlet.GuildHall[newClass];
 }
 

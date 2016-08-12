@@ -71,29 +71,30 @@ $(document).ready(function() {
 
 
   $(".champ").click(function() {
-     console.log("User class", (this).innerText);
-     var champClass = (this).innerText.toLowerCase();
-     champClass = champClass.charAt(0).toUpperCase() + champClass.slice(1)
-     console.log(champClass)
-     champ.setClass(champClass);
-     console.log("class", champClass)
+    console.log(champ)
+    //  console.log("User class", (this).innerText);
+     // var champClass = (this).innerText.toLowerCase();
+    //  console.log(champClass)
+    //  champClass = champClass.charAt(0)
+     champ.setClass(this.id);
+     console.log(champ)
   });
 
-  // $("weapon").click(function () {
-  //   console.log(currentClassName);
-  //   if (currentClassName === "Warrior" || currentClassName === "Valkyrie" || currentClassName === "Berserker" || currentClassName === "Monk") {
+  // $(".champ").click(function () {
+  //   console.log(champClass);
+  //   if (champClass === "Warrior" || champClass === "Valkyrie" || champClass === "Berserker" || champClass === "Monk") {
   //     console.log("you picked figher");
-  //     $("#spell_select").addClass("hidden");
+  //     $("#spell-select").addClass("hidden");
   //   }
 
-  //   if (currentClassName === "Wizard" || currentClassName === "Conjurer" || currentClassName === "Sorcerer") {
+  //   if (champClass === "Wizard" || champClass === "Conjurer" || champClass === "Sorcerer") {
   //     console.log("you picked mage");
-  //     $("#weapon_select").addClass("hidden");
+  //     $("#weapon-select").addClass("hidden");
   //   }
 
-  //   if (currentClassName === "Thief" || currentClassName === "Ninja" || currentClassName === "Assassin") {
+  //   if (champClass === "Thief" || champClass === "Ninja" || champClass === "Assassin") {
   //     console.log("you picked stealth");
-  //     $("#spell_select").addClass("hidden");
+  //     $("#spell-select").addClass("hidden");
   //   }
 
     $(".weapon").click(function(event) {

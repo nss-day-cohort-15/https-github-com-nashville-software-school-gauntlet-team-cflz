@@ -13,7 +13,7 @@ Gauntlet.WeaponsCloset.Weapon = function () {
   }
 };
 Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
-  this.weapon = newWeapon;
+  this.weapon = new Gauntlet.WeaponsCloset[newWeapon];
 }
 
 //FIGHTER CLASS WEAPONS
