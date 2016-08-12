@@ -76,18 +76,24 @@ $(document).ready(function() {
       console.log("Your destiny is to be a fighter!");
       $("#spell-select").addClass("hide");
       $("#stealth-select").addClass("hide");
+      $("#fighterChar").removeClass('hide');
+      $("#trump").removeClass('hide');
     }
 
     if (champ.class.name === "Wizard" || champ.class.name === "Conjurer" || champ.class.name === "Sorcerer") {
       console.log("Your destiny is to be a magician!");
       $("#weapon-select").addClass("hide");
       $("#stealth-select").addClass("hide");
+      $("#magicalChar").removeClass('hide');
+      $("#scott").removeClass('hide');
     }
 
     if (champ.class.name === "Thief" || champ.class.name === "Ninja" || champ.class.name === "Assassin") {
       console.log("Your destiny is to be sneaky!");
       $("#spell-select").addClass("hide");
       $("#weapon-select").addClass("hide");
+      $("#stealthChar").removeClass('hide');
+      $("#trump").removeClass('hide');
     }
 
     $(".weapon").click(function(event) {
@@ -104,9 +110,9 @@ $(document).ready(function() {
 
   var orc;
     function battleCards() {
-      console.log("My health",champ.health);
-      console.log("What is my name?", champ.playerName);
-      console.log("champ Class", champ.class.name);
+      console.log("My health is at",champ.health);
+      console.log("My name is", champ.playerName);
+      console.log("I am a", champ.class.name);
 
       // orc = new Gauntlet.Combatants.Orc();
       // orc.setWeapon(new KnottedClub());
@@ -117,7 +123,7 @@ $(document).ready(function() {
       // var enemyOutput = "";
       // $(".playerStat").html("")
 
-      var playerOutput = `<p>${champ.playerName} the ${champ.class}</p>` +
+      var playerOutput = `<p>${champ.playerName} the ${champ.class.name}</p>` +
                      `<div class="health">Health: ${champ.health}</div>`;
       $(".p1Stats").html(playerOutput);
 
@@ -141,9 +147,6 @@ $(document).ready(function() {
        $(".fighterImg").offset({ left: leftOffset });
         leftOffset = leftOffset + 5;
         if (leftOffset > 720) {
-
-          // // $(".p1Stats").effect( "bounce", "fast" );
-          // $("battleground").effect( "shake", "fast" );
          $(".fighterImg").animate({left: "-=720"}, 1);
           clearInterval(fighterInterval);
         }
@@ -155,9 +158,6 @@ $(document).ready(function() {
        $(".enemyImg").offset({ left: rightOffset });
         rightOffset = rightOffset - 5;
         if (rightOffset < -720) {
-
-          // $("battleground").effect( "shake", "fast" );
-          // $(".p2Stats").effect( "bounce", "fast" );
 
          $(".enemyImg").animate({left: "+=720"}, 1);
           clearInterval(enemyInterval);
