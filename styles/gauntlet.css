@@ -123,9 +123,11 @@ body {
 /*----------  BATTLEGROUND!!  ----------*/
 .p1Stats {
   float: left;
+  color: white;
 }
 .p2Stats {
   float: right;
+  color: white;
 }
 .fighterImg img{
   float: left;

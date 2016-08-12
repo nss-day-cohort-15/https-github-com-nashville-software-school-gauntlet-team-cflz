@@ -62,6 +62,10 @@ $(document).ready(function() {
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
         break;
+      case "card--battleground":
+          moveAlong = ($("#player-name").val() !== "");
+          battleCards()
+          break;
     }
 
     if (moveAlong) {
@@ -83,103 +87,104 @@ $(document).ready(function() {
 
       var champName = $('#player-name').val();
       champ = new Gauntlet.Combatants.Human(champName)
-      console.log(champ)
   });
 
-// // Captures userClass
-//     $("[next='card--weapon']").on('click', function(e) {
-//      userClass = $(this).toggleClass('selected');
-//      userName.setClass = new Gauntlet.Guildhall.userClass();
-//      console.log(userName)
-// });
 
   $(".champ").click(function() {
-     console.log("User class", (this).innerText);
-     var champClass = (this).innerText.toLowerCase();
-     champClass = champClass.charAt(0).toUpperCase() + champClass.slice(1)
-     console.log(champClass)
-     champ.setClass(champClass);
-     console.log(champ)
-  });
-
-
-
-  $(".weapon").click(function(event) {
-     console.log("User weapon", (this).innerText);
-     // var champWeapon = (this).innerText.toLowerCase();
-     var champWeapon = event.currentTarget.id
-
-     // champWeapon = champWeapon.charAt(0).toUpperCase() + champWeapon.slice(1)
-     // console.log(champWeapon)
-     champ.weapon = new Gauntlet.WeaponsCloset[champWeapon]();
-
-     console.log(champ)
-  });
-
-$(".spell").click(function() {
-     console.log("User spell", (this).innerText);
-     var champSpell = (this).innerText.toLowerCase();
-     champSpell = champSpell.charAt(0).toUpperCase() + champSpell.slice(1)
-     console.log(champSpell)
-     champ.setSpell(champSpell);
-     console.log(champ)
-  });
-
-
-
-  // });
-
-  var attack = function () {
-    var foe = new Gauntlet.Combatants.Drumpf()
-    console.log(champ);
-    var monsterHealth = foe.health - champ.weapon.damage
-    var playerHealth = champ.health - foe.weapon.damage
-
-    if ((monsterHealth) <= 0) {
-      alert("Game over. You win!")
-    } else if (playerHealth <= 0) {
-      alert("Game over. You lose.")
+    champ.setClass(this.id);
+    if (champ.class.name === "Warrior" || champ.class.name === "Valkyrie" || champ.class.name === "Berserker" || champ.class.name === "Monk") {
+      console.log("Your destiny is to be a fighter!");
+      $("#spell-select").addClass("hide");
+      $("#stealth-select").addClass("hide");
+      $("#fighterChar").removeClass('hide');
+      $("#trump").removeClass('hide');
     }
-  }
-    $("#attack").click(attack)
+
+    if (champ.class.name === "Wizard" || champ.class.name === "Conjurer" || champ.class.name === "Sorcerer") {
+      console.log("Your destiny is to be a magician!");
+      $("#weapon-select").addClass("hide");
+      $("#stealth-select").addClass("hide");
+      $("#magicalChar").removeClass('hide');
+      $("#scott").removeClass('hide');
+    }
+
+    if (champ.class.name === "Thief" || champ.class.name === "Ninja" || champ.class.name === "Assassin") {
+      console.log("Your destiny is to be sneaky!");
+      $("#spell-select").addClass("hide");
+      $("#weapon-select").addClass("hide");
+      $("#stealthChar").removeClass('hide');
+      $("#trump").removeClass('hide');
+    }
+
+    $(".weapon").click(function(event) {
+     console.log("User weapon", (this).innerText);
+     var champWeapon = event.currentTarget.id
+     champ.setWeapon(champWeapon);
+    })
+
+
+     console.log(champ)
+  });
 
 /*----------  BATTLEGROUND!!  ----------*/
+
+  var orc;
+    function battleCards() {
+      console.log("My health is at",champ.health);
+      console.log("My name is", champ.playerName);
+      console.log("I am a", champ.class.name);
+
+      // orc = new Gauntlet.Combatants.Orc();
+      // orc.setWeapon(new KnottedClub());
+      // orc.generateClass();
+      // orc.playerName = "MyNameOrc";
+      // console.log(orc.toString());
+      // var playerOutput = "";
+      // var enemyOutput = "";
+      // $(".playerStat").html("")
+
+      var playerOutput = `<p>${champ.playerName} the ${champ.class.name}</p>` +
+                     `<div class="health">Health: ${champ.health}</div>`;
+      $(".p1Stats").html(playerOutput);
+
+      // var enemyOutput = `<p>${orc.monsterName}</p>` +
+      //               `<div class="health">Health: ${orc.health}</div>`;
+      // $(".p2Stats").html(enemyOutput);
+
+  };
 
   // Changes battle background on refresh
   var images = ['japan.gif', 'mexican_background.gif', 'planebackground.gif', 'street.gif', 'war.gif'];
    $('#battleground').css({'background-image': 'url(/img/bg/' + images[Math.floor(Math.random() * images.length)] + ')'})
 
    // ANIMATIONS
-   var characterInter = setInterval(moveCharacter, 1);
-    var leftOffset = 0;
-    function moveCharacter() {
-       $(".characterImg").offset({ left: leftOffset });
-        leftOffset = leftOffset + 5;
-        if (leftOffset > 600) {
 
-          $(".enemyStat").effect( "bounce", "fast" );
-          $("#battleground").effect( "shake", "fast" );
-         $(".fighterImg").animate({left: "-=600"}, 1);
-          clearInterval(characterInter);
+  $("#attack").click(function battle(){
+
+    var fighterInterval = setInterval(moveFighter, 1);
+    var leftOffset = 0;
+    function moveFighter() {
+       $(".fighterImg").offset({ left: leftOffset });
+        leftOffset = leftOffset + 5;
+        if (leftOffset > 720) {
+         $(".fighterImg").animate({left: "-=720"}, 1);
+          clearInterval(fighterInterval);
         }
     };
-  // }
 
-  var monsterInter = setInterval(moveMonster, 1);
-  var rightOffset = 0;
-  function moveMonster() {
-     $(".enemyImg").offset({ left: rightOffset });
-      rightOffset = rightOffset - 5;
-      if (rightOffset < -600) {
+    var enemyInterval = setInterval(moveEnemy, 1);
+    var rightOffset = 0;
+    function moveEnemy() {
+       $(".enemyImg").offset({ left: rightOffset });
+        rightOffset = rightOffset - 5;
+        if (rightOffset < -720) {
 
-        $("#battleground").effect( "shake", "fast" );
-        $(".playerStat").effect( "bounce", "fast" );
-
-       $(".enemyImg").animate({left: "+=600"}, 1);
-        clearInterval(monsterInter);
-      }
-  };
-  clearInterval(moveMonster);
+         $(".enemyImg").animate({left: "+=720"}, 1);
+          clearInterval(enemyInterval);
+        }
+    };
+    clearInterval(moveEnemy);
+  });
 
 });
 

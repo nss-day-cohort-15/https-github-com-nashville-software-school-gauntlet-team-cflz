@@ -20,9 +20,11 @@ Gauntlet.SpellBook.Spell = function() {
   }
 };
 
+
 Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
   this.spell = newSpell;
 }
+
 
 /*
   An elemental sphere that can be cast by a magical class
