@@ -1,47 +1,11 @@
-// var warrior = new Gauntlet.Combatants.Human();
-// warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
-// warrior.generateClass();  // This will be used for "Surprise me" option
-// console.log(warrior.toString());
 
-// var orc = new Gauntlet.Combatants.Orc();
-// orc.generateClass();
-// orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
-// console.log(orc.toString());
-
-
-/*
-  Test code to generate a human player and an orc player
- */
-// var warrior = new Gauntlet.Combatants.Human();
-// warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
-// warrior.generateClass();  // This will be used for "Surprise me" option
-// console.log(warrior.toString());
-
-// var orc = new Gauntlet.Combatants.Orc();
-// orc.generateClass();
-// orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
-// console.log(orc.toString());
-
-// var warrior = new Gauntlet.Combatants.Human();
-// warrior.setWeapon(new WarAxe());
-// warrior.generateClass();  // This will be used for "Surprise me" option
-// console.log(warrior.toString());
-
-// var orc = new Gauntlet.Combatants.Orc();
-// orc.generateClass();
-// orc.setWeapon(new BroadSword());
-// console.log(orc.toString());
-
-/*
-  Test code to generate a spell
- */
 var spell = new Gauntlet.SpellBook.Sphere();
 console.log("spell: ", spell.toString());
 
 
 $(document).ready(function() {
 
-  var champ = null;
+  var champ;
   /*
     Show the initial view that accepts player name
    */
@@ -62,9 +26,10 @@ $(document).ready(function() {
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
         break;
-        case "card--battleground":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
+      case "card--battleground":
+          moveAlong = ($("#player-name").val() !== "");
+          battleCards()
+          break;
     }
 
     if (moveAlong) {
@@ -89,108 +54,81 @@ $(document).ready(function() {
       console.log(champ)
   });
 
-// // Captures userClass
-//     $("[next='card--weapon']").on('click', function(e) {
-//      userClass = $(this).toggleClass('selected');
-//      userName.setClass = new Gauntlet.Guildhall.userClass();
-//      console.log(userName)
-// });
 
   $(".champ").click(function() {
-     console.log("User class", (this).innerText);
-     var champClass = (this).innerText.toLowerCase();
-     champClass = champClass.charAt(0).toUpperCase() + champClass.slice(1)
-     console.log(champClass)
-     champ.setClass(champClass);
+    console.log(champ)
+     champ.setClass(this.id);
      console.log(champ)
-  });
+  });
 
-//Captures user weapon
 
-  $(".weapon").click(function(event) {
+
+    $(".weapon").click(function(event) {
      console.log("User weapon", (this).innerText);
-     // var champWeapon = (this).innerText.toLowerCase();
      var champWeapon = event.currentTarget.id
-
-     // champWeapon = champWeapon.charAt(0).toUpperCase() + champWeapon.slice(1)
-     // console.log(champWeapon)
-     champ.weapon = new Gauntlet.WeaponsCloset[champWeapon]();
-     // champ.setWeapon(champWeapon)
-
-
-
+     champ.setWeapon(champWeapon);
      console.log(champ)
-  });
-
-// $(".spell").click(function() {
-//      console.log("User spell", (this).innerText);
-//      var champSpell = (this).innerText.toLowerCase();
-//      champSpell = champSpell.charAt(0).toUpperCase() + champSpell.slice(1)
-//      console.log(champSpell)
-//      champ.setSpell(champSpell);
-//      console.log(champ)
-//   });
-
-
-
-
-  // var attack = function () {
-  //   var foe = new Gauntlet.Combatants.Drumpf()
-  //   console.log(champ);
-  //   var monsterHealth = foe.health - champ.weapon.damage
-  //   var playerHealth = champ.health - foe.weapon.damage
-
-  //   if ((monsterHealth) <= 0) {
-  //     alert("Game over. You win!")
-  //   } else if (playerHealth <= 0) {
-  //     alert("Game over. You lose.")
-  //   }
-  // }
-  //   $("#attack").click(attack)
+  });
 
 /*----------  BATTLEGROUND!!  ----------*/
+
+
+    function battleCards() {
+      console.log("My health",champ.health);
+      console.log("What is my name?", champ.playerName);
+      console.log("champ Class", champ.class);
+      var drumpf = new Gauntlet.Combatants.Drumpf;
+
+      var playerOutput = `<p>${champ.playerName} the ${champ.class}</p>` +
+                     `<div class="health">Health: ${champ.health}</div>`;
+      $(".p1Stats").html(playerOutput);
+
+      enemyOutput = `<p>${drumpf.name}</p>` +
+                    `<div class="health">Health: ${drumpf.health}</div>`;
+      $(".p2Stats").html(enemyOutput);
+
+
 
   // Changes battle background on refresh
   var images = ['japan.gif', 'mexican_background.gif', 'planebackground.gif', 'street.gif', 'war.gif'];
    $('#battleground').css({'background-image': 'url(/img/bg/' + images[Math.floor(Math.random() * images.length)] + ')'})
 
    // ANIMATIONS
-   $("#attack").click(function battle(){
 
-    var fighterInterval = setInterval(moveFighter, 1);
-    var leftOffset = 0;
-    function moveFighter() {
-       $(".fighterImg").offset({ left: leftOffset });
-        leftOffset = leftOffset + 5;
-        if (leftOffset > 720) {
+  $("#attack").click(function battle(){
 
-          // // $(".p1Stats").effect( "bounce", "fast" );
-          // $("battleground").effect( "shake", "fast" );
-         $(".fighterImg").animate({left: "-=720"}, 1);
-          clearInterval(fighterInterval);
-        }
-    };
+    var fighterInterval = setInterval(moveFighter, 1);
+    var leftOffset = 0;
+    function moveFighter() {
+       $(".fighterImg").offset({ left: leftOffset });
+        leftOffset = leftOffset + 5;
+        if (leftOffset > 720) {
 
-    var enemyInterval = setInterval(moveEnemy, 1);
-    var rightOffset = 0;
-    function moveEnemy() {
-       $(".enemyImg").offset({ left: rightOffset });
-        rightOffset = rightOffset - 5;
-        if (rightOffset < -720) {
+          // // $(".p1Stats").effect( "bounce", "fast" );
+          // $("battleground").effect( "shake", "fast" );
+         $(".fighterImg").animate({left: "-=720"}, 1);
+          clearInterval(fighterInterval);
+        }
+    };
 
-          // $("battleground").effect( "shake", "fast" );
-          // $(".p2Stats").effect( "bounce", "fast" );
+    var enemyInterval = setInterval(moveEnemy, 1);
+    var rightOffset = 0;
+    function moveEnemy() {
+       $(".enemyImg").offset({ left: rightOffset });
+        rightOffset = rightOffset - 5;
+        if (rightOffset < -720) {
 
-         $(".enemyImg").animate({left: "+=720"}, 1);
-          clearInterval(enemyInterval);
-        }
-    };
-    clearInterval(moveEnemy);
-  
-
-});
+         $(".enemyImg").animate({left: "+=720"}, 1);
+          clearInterval(enemyInterval);
+        }
+    };
+    clearInterval(moveEnemy);
+  });
+}
+})
 
 
-  });
+
+
 
 

@@ -41,41 +41,37 @@ Gauntlet.Combatants.Player = function(name) {
 };
 
 Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
-
-  console.log("yo2", newWeapon)
-  this.weapon = new Gauntlet.WeaponsCloset[newWeapon]()
+  this.weapon = new Gauntlet.WeaponsCloset[newWeapon];
 }
 
 Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
-  console.log("yo1", newClass)
-  this.class = new Gauntlet.GuildHall[newClass]();
+  console.log("new Class", newClass)
+  this.class = new Gauntlet.GuildHall[newClass];
 }
-
 
 Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
-  this.spell = new Gauntlet.SpellBook[newSpell]();
+  this.spell = new Gauntlet.SpellBook[newSpell];;
 }
 
-// Gauntlet.Combatants.Player.prototype.generateClass = function() {
-//   // Get a random index from the allowed classes array
-//   var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+Gauntlet.Combatants.Player.prototype.generateClass = function() {
+  // Get a random index from the allowed classes array
+  var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
 
-//   // Get the string at the index
-//   var randomClass = this.allowedClasses[random];
+  // Get the string at the index
+  var randomClass = this.allowedClasses[random];
 
-//   // Composes the corresponding player class into the player object
-//   this.class = new Gauntlet.GuildHall[randomClass]();
+  // Composes the corresponding player class into the player object
+  this.class = new Gauntlet.GuildHall[randomClass]();
 
-//   // Add the health bonus
-//   this.health += this.class.healthBonus;
-//   return this.class;
-// };
+  // Add the health bonus
+  this.health += this.class.healthBonus;
+  return this.class;
+};
 
 /*
   Define the base properties for a human in a
   constructor function.
  */
-
 
 Gauntlet.Combatants.Human = function(name) {
 
@@ -90,7 +86,6 @@ Gauntlet.Combatants.Human = function(name) {
 
   this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk", "Valkyrie", "Sorcerer", "Conjurer", "Wizard", "Thief", "Assassin", "Ninja"];
 };
-
 Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
 
 
@@ -150,10 +145,8 @@ Gauntlet.Combatants.Giant.prototype = new Gauntlet.Combatants.Monster();
 Gauntlet.Combatants.Drumpf = function() {
   this.health = this.health + 50;
   this.species = "Drumpf";
+  this.name = "Dirt"
   this.allowedClasses = ["Berserker", "Thief"];
 };
 
 Gauntlet.Combatants.Drumpf.prototype = new Gauntlet.Combatants.Monster();
-
-
-
