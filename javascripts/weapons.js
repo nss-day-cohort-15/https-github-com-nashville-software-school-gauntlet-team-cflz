@@ -12,9 +12,10 @@ Gauntlet.WeaponsCloset.Weapon = function () {
     return "" + this.name + " " + this.type + " attack for " + this.damage + " damage!";
   }
 };
-Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
-  this.weapon = newWeapon;
-}
+// Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
+//   this.weapon = new Gauntlet.WeaponsCloset[newWeapon]()
+
+// };
 
 //FIGHTER CLASS WEAPONS
 Gauntlet.WeaponsCloset.KnottedClub = function() {

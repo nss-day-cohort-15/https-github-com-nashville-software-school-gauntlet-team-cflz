@@ -1,4 +1,4 @@
-/*
+  /*
   TODO: Modularize this code with IIFE or Browserify
  */
 var Gauntlet = Gauntlet || {};

@@ -65,7 +65,7 @@
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#">
                 <span class="btn__prompt">></span>
-                <span class="btn__text champ">berserker</span>
+                <span class="btn__text champ">Berserker</span>
               </a>
             </div>
 
@@ -181,14 +181,14 @@
           </div>
         </div>
       </div>
-      <div class="card__button" id="defeatYourEnemies">
+      <!-- <div class="card__button" id="defeatYourEnemies">
         <a class="card__link btn btn--big btn--orange"
            href="#"
            next="card--battleground">
           <span class="btn__prompt">></span>
-          <span class="btn__text battlefield">GO TO BATTLE</span>
+          <span class="btn__text battlefield">defeat your enemies</span>
         </a>
-      </div>
+      </div> -->
     </section>
 <!-- STEALTH CARDS -->
     <section id="spell-select" class="card card--weapon">
@@ -236,8 +236,8 @@
                 <span class="btn__text weapon">Shuriken</span>
               </a>
             </div>
-            </div>
-            </div>
+          </div>
+        </div>
 <!-- Spell Cards -->
 
     <section id="spell-select" class="card card--weapon">
@@ -287,20 +287,33 @@
         </div>
       </div>
 
-      <div class="card__button" id="defeatYourEnemies">
+
+      <div class="card__button">
         <a class="card__link btn btn--big btn--orange"
            href="#"
            next="card--battleground">
           <span class="btn__prompt">></span>
-          <span class="btn__text attack">Go to Battle</span>
+          <span class="btn__text" id=>Go to Battle</span>
         </a>
       </div>
     </section>
 
 
-    <section id="battleground" class="card card--battleground">
+<!--
+      <div class="card__button">
+        <a class="card__link btn btn--big btn--orange"
+           href="#"
+           next="card--weapon">
+          <span class="btn__prompt">></span>
+          <span class="btn__text">Select weapon</span>
+        </a>
+      </div>
+    </section>
+ -->
+    <section id="battleground" class="card--battleground">
       <div class = "container-fluid battleground">
         <div class="row">
+
       <!-- BATTLE STATUS BAR -->
 
          <!-- FIGHTER STATS -->
@@ -353,8 +366,8 @@
     </section>
   </article>
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script src="javascripts/classes.js"></script>
   <script src="javascripts/player.js"></script>
+  <script src="javascripts/classes.js"></script>
   <script src="javascripts/spells.js"></script>
   <script src="javascripts/weapons.js"></script>
   <script src="javascripts/app.js"></script>
