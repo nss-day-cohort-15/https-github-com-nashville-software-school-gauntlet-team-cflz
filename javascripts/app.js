@@ -54,7 +54,6 @@ $(document).ready(function() {
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
     var moveAlong = true;
-
     switch (nextCard) {
       case "card--class":
         moveAlong = ($("#player-name").val() !== "");
@@ -63,9 +62,9 @@ $(document).ready(function() {
         moveAlong = ($("#player-name").val() !== "");
         break;
       case "card--battleground":
-          moveAlong = ($("#player-name").val() !== "");
-          battleCards()
-          break;
+        moveAlong = ($("#player-name").val() !== "");
+        battleCards()
+        break;
     }
 
     if (moveAlong) {
@@ -88,6 +87,15 @@ $(document).ready(function() {
       var champName = $('#player-name').val();
       champ = new Gauntlet.Combatants.Human(champName)
   });
+    var drumpf = new Gauntlet.Combatants.Drumpf()
+
+
+// Captures userClass
+    $("[next='card--weapon']").on('click', function(e) {
+     var PlayerClass = $(this).toggleClass('selected');
+     // userName.setClass = new Gauntlet.Guildhall.PlayerClass();
+     console.log(userName)
+});
 
 
   $(".champ").click(function() {
@@ -126,14 +134,17 @@ $(document).ready(function() {
      console.log(champ)
   });
 
+
+
 /*----------  BATTLEGROUND!!  ----------*/
 
-  var orc;
-    function battleCards() {
-      console.log("My health is at",champ.health);
-      console.log("My name is", champ.playerName);
-      console.log("I am a", champ.class.name);
 
+function battleCards() {
+      // var drumpf = new Gauntlet.Combatants.Drumpf()
+      console.log("My health",champ.health);
+      console.log("What is my name?", champ.playerName);
+      console.log("champ Class", champ.class);
+      printStats(drumpf, champ)
       // orc = new Gauntlet.Combatants.Orc();
       // orc.setWeapon(new KnottedClub());
       // orc.generateClass();
@@ -143,15 +154,16 @@ $(document).ready(function() {
       // var enemyOutput = "";
       // $(".playerStat").html("")
 
-      var playerOutput = `<p>${champ.playerName} the ${champ.class.name}</p>` +
+  };
+  function printStats(drumpf, champ){
+      var playerOutput = `<p>${champ.playerName} the ${champ.class} with ${champ.weapon}</p>` +
                      `<div class="health">Health: ${champ.health}</div>`;
       $(".p1Stats").html(playerOutput);
 
-      // var enemyOutput = `<p>${orc.monsterName}</p>` +
-      //               `<div class="health">Health: ${orc.health}</div>`;
-      // $(".p2Stats").html(enemyOutput);
-
-  };
+      var enemyOutput = `<p>${drumpf.name}</p>` +
+                    `<div class="health">Health: ${drumpf.health}</div>`;
+      $(".p2Stats").html(enemyOutput);
+  }
 
   // Changes battle background on refresh
   var images = ['japan.gif', 'mexican_background.gif', 'planebackground.gif', 'street.gif', 'war.gif'];
@@ -159,7 +171,21 @@ $(document).ready(function() {
 
    // ANIMATIONS
 
-  $("#attack").click(function battle(){
+  $("#attack").click(function (){
+    console.log("are we in function")
+    console.log("drumpf health", drumpf.health)
+    console.log("drumpf damage", drumpf.damage)
+    console.log("champ dam", champ.weapon.damage)
+    console.log("champ health", champ.health)
+    drumpf.health = drumpf.health - champ.weapon.damage
+    champ.health = champ.health - drumpf.damage
+    printStats(drumpf, champ)
+
+    if ((drumpf.health) <= 0) {
+      alert("Game over. You win!")
+    } else if (champ.health <= 0) {
+      alert("Game over. You lose.")
+    }
 
     var fighterInterval = setInterval(moveFighter, 1);
     var leftOffset = 0;
