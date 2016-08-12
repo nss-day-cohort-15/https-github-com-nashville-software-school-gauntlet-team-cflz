@@ -22,7 +22,7 @@ Gauntlet.SpellBook.Spell = function() {
 
 
 Gauntlet.Combatants.Player.prototype.setSpell = function(newSpell) {
-  this.spell = newSpell;
+  this.spell = newSpell;
 }
 
 
@@ -81,4 +81,3 @@ Gauntlet.SpellBook.Hadouken = function() {
 };
 
 Gauntlet.SpellBook.Hadouken.prototype = new Gauntlet.SpellBook.Spell();
-

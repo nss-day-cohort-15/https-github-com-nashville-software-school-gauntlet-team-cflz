@@ -129,6 +129,14 @@ body {
   float: right;
   color: white;
 }
+div.p1Stats {
+background: rgba(32, 52, 79, .35);
+border-radius: 25px;
+}
+div.p2Stats {
+background: rgba(32, 52, 79, .35);
+border-radius: 25px;
+}
 .fighterImg img{
   float: left;
   max-width: 100%;

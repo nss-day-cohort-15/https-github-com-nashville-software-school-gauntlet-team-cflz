@@ -12,15 +12,15 @@
 /*
   Test code to generate a human player and an orc player
  */
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
-warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
+// var warrior = new Gauntlet.Combatants.Human();
+// warrior.setWeapon(new Gauntlet.WeaponsCloset.PocketSand());
+// warrior.generateClass();  // This will be used for "Surprise me" option
+// console.log(warrior.toString());
 
-var orc = new Gauntlet.Combatants.Orc();
-orc.generateClass();
-orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
-console.log(orc.toString());
+// var orc = new Gauntlet.Combatants.Orc();
+// orc.generateClass();
+// orc.setWeapon(new Gauntlet.WeaponsCloset.PoisonDart());
+// console.log(orc.toString());
 
 // var warrior = new Gauntlet.Combatants.Human();
 // warrior.setWeapon(new WarAxe());
@@ -54,7 +54,6 @@ $(document).ready(function() {
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
     var moveAlong = true;
-
     switch (nextCard) {
       case "card--class":
         moveAlong = ($("#player-name").val() !== "");
@@ -63,9 +62,9 @@ $(document).ready(function() {
         moveAlong = ($("#player-name").val() !== "");
         break;
       case "card--battleground":
-          moveAlong = ($("#player-name").val() !== "");
-          battleCards()
-          break;
+        moveAlong = ($("#player-name").val() !== "");
+        battleCards()
+        break;
     }
 
     if (moveAlong) {
@@ -88,33 +87,19 @@ $(document).ready(function() {
       var champName = $('#player-name').val();
       champ = new Gauntlet.Combatants.Human(champName)
   });
+    var drumpf = new Gauntlet.Combatants.Drumpf()
+
+
+// Captures userClass
+    $("[next='card--weapon']").on('click', function(e) {
+     var PlayerClass = $(this).toggleClass('selected');
+     // userName.setClass = new Gauntlet.Guildhall.PlayerClass();
+     // console.log(userName)
+});
 
 
   $(".champ").click(function() {
     champ.setClass(this.id);
-    if (champ.class.name === "Warrior" || champ.class.name === "Valkyrie" || champ.class.name === "Berserker" || champ.class.name === "Monk") {
-      console.log("Your destiny is to be a fighter!");
-      $("#spell-select").addClass("hide");
-      $("#stealth-select").addClass("hide");
-      $("#fighterChar").removeClass('hide');
-      $("#trump").removeClass('hide');
-    }
-
-    if (champ.class.name === "Wizard" || champ.class.name === "Conjurer" || champ.class.name === "Sorcerer") {
-      console.log("Your destiny is to be a magician!");
-      $("#weapon-select").addClass("hide");
-      $("#stealth-select").addClass("hide");
-      $("#magicalChar").removeClass('hide');
-      $("#scott").removeClass('hide');
-    }
-
-    if (champ.class.name === "Thief" || champ.class.name === "Ninja" || champ.class.name === "Assassin") {
-      console.log("Your destiny is to be sneaky!");
-      $("#spell-select").addClass("hide");
-      $("#weapon-select").addClass("hide");
-      $("#stealthChar").removeClass('hide');
-      $("#trump").removeClass('hide');
-    }
 
     $(".weapon").click(function(event) {
      console.log("User weapon", (this).innerText);
@@ -126,14 +111,40 @@ $(document).ready(function() {
      console.log(champ)
   });
 
+    $(".fighter").click(function() {
+      console.log("Your destiny is to be a fighter!");
+      $("#spell-select").addClass("hide");
+      $("#stealth-select").addClass("hide");
+      $("#fighterChar").removeClass('hide');
+      $("#trump").removeClass('hide');
+    })
+
+    $(".magic").click(function() {
+      console.log("Your destiny is to be a magician!");
+      $("#weapon-select").addClass("hide");
+      $("#stealth-select").addClass("hide");
+      $("#magicalChar").removeClass('hide');
+      $("#scott").removeClass('hide');
+    })
+
+    $(".stealth").click(function() {
+      console.log("Your destiny is to be sneaky!");
+      $("#spell-select").addClass("hide");
+      $("#weapon-select").addClass("hide");
+      $("#stealthChar").removeClass('hide');
+      $("#scott").removeClass('hide');
+    })
+
+
 /*----------  BATTLEGROUND!!  ----------*/
 
-  var orc;
-    function battleCards() {
-      console.log("My health is at",champ.health);
-      console.log("My name is", champ.playerName);
-      console.log("I am a", champ.class.name);
 
+function battleCards() {
+      // var drumpf = new Gauntlet.Combatants.Drumpf()
+      console.log("My health",champ.health);
+      console.log("What is my name?", champ.playerName);
+      console.log("champ Class", champ.class);
+      printStats(drumpf, champ)
       // orc = new Gauntlet.Combatants.Orc();
       // orc.setWeapon(new KnottedClub());
       // orc.generateClass();
@@ -143,15 +154,16 @@ $(document).ready(function() {
       // var enemyOutput = "";
       // $(".playerStat").html("")
 
-      var playerOutput = `<p>${champ.playerName} the ${champ.class.name}</p>` +
+  };
+  function printStats(drumpf, champ){
+      var playerOutput = `<p>${champ.playerName} fighting with ${champ.weapon}</p><br>` +
                      `<div class="health">Health: ${champ.health}</div>`;
       $(".p1Stats").html(playerOutput);
 
-      // var enemyOutput = `<p>${orc.monsterName}</p>` +
-      //               `<div class="health">Health: ${orc.health}</div>`;
-      // $(".p2Stats").html(enemyOutput);
-
-  };
+      var enemyOutput = `<p>${drumpf.name}</p>` +
+                    `<div class="health">Health: ${drumpf.health}</div>`;
+      $(".p2Stats").html(enemyOutput);
+  }
 
   // Changes battle background on refresh
   var images = ['japan.gif', 'mexican_background.gif', 'planebackground.gif', 'street.gif', 'war.gif'];
@@ -159,7 +171,21 @@ $(document).ready(function() {
 
    // ANIMATIONS
 
-  $("#attack").click(function battle(){
+  $("#attack").click(function (){
+    console.log("are we in function")
+    console.log("drumpf health", drumpf.health)
+    console.log("drumpf damage", drumpf.damage)
+
+    console.log("champ health", champ.health)
+    drumpf.health = drumpf.health - champ.weapon.damage
+    champ.health = champ.health - drumpf.damage
+    printStats(drumpf, champ)
+
+    if ((drumpf.health) <= 0) {
+      alert("Game over. You win!")
+    } else if (champ.health <= 0) {
+      alert("Game over. You lose.")
+    }
 
     var fighterInterval = setInterval(moveFighter, 1);
     var leftOffset = 0;
