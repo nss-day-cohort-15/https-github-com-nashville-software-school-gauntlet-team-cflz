@@ -44,6 +44,7 @@ $(document).ready(function() {
         break;
       case "card--battleground":
           moveAlong = ($("#player-name").val() !== "");
+          battleCards()
           break;
     }
 
@@ -111,21 +112,33 @@ $(document).ready(function() {
 
      console.log(champ)
   });
-  // var attack = function () {
-  //   var foe = new Gauntlet.Combatants.Drumpf()
-  //   console.log(champ);
-  //   var monsterHealth = foe.health - champ.weapon.damage
-  //   var playerHealth = champ.health - foe.weapon.damage
-
-  //   if ((monsterHealth) <= 0) {
-  //     alert("Game over. You win!")
-  //   } else if (playerHealth <= 0) {
-  //     alert("Game over. You lose.")
-  //   }
-  // }
-  //   $("#attack").click(attack)
 
 /*----------  BATTLEGROUND!!  ----------*/
+
+  var orc;
+    function battleCards() {
+      console.log("My health",champ.health);
+      console.log("What is my name?", champ.playerName);
+      console.log("champ Class", champ.class);
+
+      // orc = new Gauntlet.Combatants.Orc();
+      // orc.setWeapon(new KnottedClub());
+      // orc.generateClass();
+      // orc.playerName = "MyNameOrc";
+      // console.log(orc.toString());
+      // var playerOutput = "";
+      // var enemyOutput = "";
+      // $(".playerStat").html("")
+
+      var playerOutput = `<p>${champ.playerName} the ${champ.class}</p>` +
+                     `<div class="health">Health: ${champ.health}</div>`;
+      $(".p1Stats").html(playerOutput);
+
+      // enemyOutput = `<p>${orc.monsterName}</p>` +
+      //               `<div class="health">Health: ${orc.health}</div>`;
+      // $(".p2Stats").html(enemyOutput);
+
+  };
 
   // Changes battle background on refresh
   var images = ['japan.gif', 'mexican_background.gif', 'planebackground.gif', 'street.gif', 'war.gif'];
