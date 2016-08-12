@@ -121,6 +121,8 @@ $(document).ready(function() {
      console.log(champ)
   });
 
+
+
 /*----------  BATTLEGROUND!!  ----------*/
 
 
@@ -141,7 +143,7 @@ function battleCards() {
 
   };
   function printStats(drumpf, champ){
-      var playerOutput = `<p>${champ.playerName} the ${champ.class}</p>` +
+      var playerOutput = `<p>${champ.playerName} the ${champ.class} with ${champ.weapon}</p>` +
                      `<div class="health">Health: ${champ.health}</div>`;
       $(".p1Stats").html(playerOutput);
 
